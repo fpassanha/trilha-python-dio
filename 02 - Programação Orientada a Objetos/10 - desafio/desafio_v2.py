@@ -129,7 +129,7 @@ class Historico:
             {
                 "tipo": transacao.__class__.__name__,
                 "valor": transacao.valor,
-                "data": datetime.now().strftime("%d-%m-%Y %H:%M:%s"),
+                "data": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
             }
         )
 
@@ -259,6 +259,7 @@ def exibir_extrato(clientes):
         extrato = "Não foram realizadas movimentações."
     else:
         for transacao in transacoes:
+            extrato += f"\nData:\t\t{transacao['data']}"
             extrato += f"\n{transacao['tipo']}:\n\tR$ {transacao['valor']:.2f}"
 
     print(extrato)
